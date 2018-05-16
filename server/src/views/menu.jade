@@ -1,0 +1,64 @@
+extends layout
+block content
+  .row
+    .col-xs-12
+      .box
+        .box-header
+          h3.box-title Danh sách món ăn
+          span.pull-right
+            a( href="#" data-toggle="modal" data-target="#menu-create-modal") Thêm món
+        // /.box-header
+        .box-body
+          table#table-menu.table.table-bordered.table-striped
+            thead
+              tr
+                th STT
+                th Món ăn
+                th Giá
+                th Thao tác
+            tbody
+              - index = 1
+              each dish in menus
+                tr
+                  td=index++
+                  td=dish.name
+                  td=dish.price
+                  td
+                    a(data-toggle="tooltip" title="Remove" data-id=dish.id).menu-delete
+                      i.fa.fa-trash(data-id=dish.id)
+        // /.box-body
+      // /.box
+    // /.col
+
+  .modal#menu-create-modal
+    .modal-dialog
+      .modal-content
+        form#menu-create-form
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h3.modal-title Thêm món ăn
+          .modal-body
+              .row
+                .col-sm-6
+                  .form-group
+                    label Tên món
+                    input.form-control(type="text", name="name")
+                .col-sm-6
+                  .form-group
+                    label Giá
+                    input.form-control(type="text", name="price")
+                .col-sm-12
+                  .form-group
+                    label Mô tả
+                    input.form-control(type="text", name="description")
+                .col-sm-12
+                  .form-group
+                    label Hình ảnh
+                    input.form-control(type="file", name="image")
+
+          .modal-footer
+            button.btn.btn-default.pull-left(type='button', data-dismiss='modal') Close
+            button.btn.btn-success(type="submit") Thêm món
+    
+  script(src="/js/menu.js")

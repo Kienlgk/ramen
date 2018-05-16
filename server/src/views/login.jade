@@ -1,0 +1,22 @@
+extends layout-blank
+block title
+    title Đăng nhập
+block include
+  link(rel='stylesheet', href="/css/login.css")
+block content
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4
+        .login-wrapper 
+          h3 
+            a(href="/") iWaiter Server
+          form#login-form
+            .form-group
+              label Tên đăng nhập:
+              input#username.form-control(type='text', name="username")
+            .form-group
+              label Mật khẩu:
+              input#password.form-control(type='password', name="password")
+            button.btn.btn-default(type='submit') Đăng nhập
+  script(src="/js/toastr.min.js")
+  script(src="/js/script.js")

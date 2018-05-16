@@ -1,0 +1,34 @@
+extends layout
+block content
+    .row
+        .col-xs-12
+            .box
+                .box-header
+                    h3.box-title Danh sách đơn hàng
+                // /.box-header
+                .box-body
+                    table#table-menu.table.table-bordered.table-striped
+                        thead
+                            tr
+                                th STT
+                                th Bàn
+                                th Danh sách món
+                                th Tổng tiền
+                                th Thao tác
+                        tbody
+                            - index = 1
+                            each order in orders
+                                tr
+                                    td=index++
+                                    td=(order.Table && order.Table.title)
+                                    td
+                                        each orderMenu in order.Menus
+                                            .col-md-6 #{orderMenu.name} x #{orderMenu.order_menu.quantity}
+                                            .col-md-6 #{orderMenu.order_menu.subtotal}
+                                    td=order.total
+                                    td
+                                        a(data-toggle="tooltip" title="Remove" data-id=order.id).order-delete
+                                            i.fa.fa-trash(data-id=order.id)
+
+
+    script(src="/js/order.js")

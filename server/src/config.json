@@ -1,0 +1,20 @@
+{
+  "server": {
+    "port": "3000"
+  },
+  "client": {
+    "app_id": "",
+    "app_secret": ""
+  },
+  "database": {
+    "username": "root",
+    "password": "root",
+    "database": "iwaiter_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": "3306",
+    "define": {
+      "underscored": true
+    }
+  }
+}

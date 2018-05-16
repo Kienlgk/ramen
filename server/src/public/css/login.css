@@ -1,0 +1,22 @@
+/* login */
+.login-wrapper h3 {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+}
+
+.login-wrapper {
+  background-color: #375a7f;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.login-wrapper  form > button {
+  display: block;
+  width: 100%;
+}
+
+.row>h3 {
+  padding: 0 15px;
+}
