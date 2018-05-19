@@ -1,0 +1,110 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  warning:    #E6303C,
+  primary:    #0477B5,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  blue:       #0477B5,
+  green:      #7EB039,
+  orange:     #E9861E,
+  purple:     #087E80,
+  lime:       #EBDF33,
+  grey:       #909090,
+  white:      #FFF,
+
+
+  textTitle:  #FFF,
+  textLabel:  #000,
+  content-background: #F9F9F9,
+  textInsignificant: #959595,
+  border: #dedede,
+  input-border: #ccc,
+  button-toggle-active: #4CDA64,
+
+);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+@import "ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+
+/*** Segment ***/
+$segment-button-ios-border-width: 0;
+$segment-button-md-border-bottom-width: 0;
+
+$segment-button-ios-height: 100%;
+$segment-button-md-height: 100%;
+
+$segment-button-ios-background-color: transparent;
+$segment-button-ios-background-color-activated: transparent;
+
+$segment-button-ios-text-color: map-get($colors, primary);
+$item-md-detail-push-color: map-get($colors, blue);
+$item-ios-detail-push-color: map-get($colors, blue);

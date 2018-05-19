@@ -1,0 +1,581 @@
+// http://ionicframework.com/docs/v2/theming/
+
+@import "ionic.globals";
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+* {
+  font-size: 14px;
+}
+.hide{
+  display: none !important;
+}
+.img-thumbnail{
+  border-radius: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+ion-avatar{
+  .img-thumbnail{
+    height: 40px;
+    width: 40px;
+  }
+}
+ion-searchbar {
+  height: 100%;
+  border: 1px solid map-get($colors, input-border);
+  border-radius: 4px !important;
+  .searchbar-input-container {
+    height: 100%;
+    .searchbar-input {
+      height: 100%;
+    }
+  }
+  &.searchbar-md {
+    padding: 0 !important;
+    .searchbar-input {
+      box-shadow: none !important;
+      padding-right: 35px !important;
+      padding-left: 40px !important;
+    }
+  }
+}
+.err{
+  color: map-get($colors, danger) !important;
+}
+.toastCss {
+  .toast-wrapper{
+    width: 60%;
+    background: map-get($colors, primary);
+    right: 5px;
+    left: initial;
+    border-radius: 3px;
+    bottom: 5px!important;
+    transform: translateY(0%);
+    box-shadow: 3px 3px 2px #888888;
+    .toast-message{
+      text-align: center;
+      padding: 12px !important;
+    }
+  }
+}
+ion-header,
+ion-header ion-toolbar div,
+ion-header ion-navbar div,
+ion-header ion-item,
+ion-header ion-item ion-title div,
+//ion-menu ion-list button ion-label,
+ion-buttons[end] button[icon-only],
+ion-buttons[start] button,
+.segment-trip-page .toolbar button {
+  background-color: map-get($colors, primary) !important;
+  color: map-get($colors, textTitle) !important;
+  // text-align: center;
+  background: map-get($colors, primary) !important;
+  font-size: 1.5rem !important;
+}
+/*** Menu ***/
+ion-menu {
+  background: map-get($colors, white) !important;
+}
+/*** Header ***/
+ion-title {
+  overflow: hidden;
+}
+ion-header ion-label {
+  white-space: normal !important;
+  padding: 0 20px;
+  font-size: 2rem;
+  // font-weight: bold;
+}
+.toolbar-title {
+  font-weight: 400 !important;
+}
+.toolbar-background {
+  border-bottom: 0 !important;
+  // height: 59px !important;
+}
+/*** Toolbar ***/
+.toolbar-content.toolbar-content-md {
+  // margin-bottom: -3px;
+}
+
+ion-navbar {
+  ion-buttons[left][start]{
+    button[left][menutoggle] {
+      min-width: 30px !important;
+    }
+  }
+}
+/***Content ***/
+ion-content.content {
+  background-color: map-get($colors, white) !important;
+}
+ion-thumbnail.trip-avatar img{
+  border-radius: 50% !important;
+}
+/*** List Item***/
+ion-thumbnail.item-thumb div {
+  margin: 5px 5px;
+  width: 75px;
+  height: 75px;
+  min-width: 75px;
+  min-height: 75px;
+  text-align: center;
+  line-height: 75px;
+  color: map-get($colors, white);
+  border-radius: 50%;
+  background-color: map-get($colors, green);
+
+  &.busy {
+    background-color: map-get($colors, gray)
+  }
+  &.selecting {
+    background-color: map-get($colors, warning);
+  }
+}
+ion-list.list-item {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+  ion-item.iwaiter-content {
+    border-bottom: 0.55px solid #dedede !important;
+    &:last-child {
+      // remove last element's border-bottom in the list
+      border: none !important;
+    }
+    .input-wrapper> ion-label {
+      margin-top: 3px !important;
+      margin-bottom: 10px !important;
+    }
+    ion-thumbnail,
+    ion-thumbnail img,
+    ion-thumbnail div {
+      width: 75px !important;
+      height: 75px !important;
+    }
+    ion-thumbnail {
+      // margin-right: 0 !important;
+    }
+    .iwaiter-info-wrapper {
+      padding-left: 10px;
+      .iwaiter-info{
+        height: 100%;
+        width: 100%;
+      }
+      .iwaiter-info-name {
+        color: map-get($colors, primary);
+        font-size: 1.5rem;
+        font-weight: bold;
+        // line-height: 1.8;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .iwaiter-info-duration {
+        float: right;
+        display: inline-block;
+      }
+      .iwaiter-info-description {
+        // display: block;
+        max-width: 80%;
+        font-size: 1.3rem;
+        display: -webkit-inline-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+      }
+    }
+  }
+}
+
+/*** Back Button ***/
+button.back-button {
+  color: map-get($colors, textTitle);
+  &.back-button-md {
+    margin: 0 !important;
+    min-width: 30px !important;
+  }
+}
+
+/*** Add button ***/
+button.add-button {
+  border: 1px solid map-get($colors, blue);
+  border-radius: 50% !important;
+  font-size: 4rem !important;
+  width: 90px;
+  height: 90px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 3px 4px rgba(0, 0, 0, 0.28);
+}
+button.add-button.button-md {
+  background-color: inherit !important;
+  color: map-get($colors, blue);
+}
+/*** Toggle Button ***/
+.button-custom[ion-button] {
+  margin: 0;
+  height: 40px;
+  border-radius: 4px !important;
+  font-size: 1.4rem;
+  .button-inner {
+    font-size: 1.4rem;
+  }
+}
+
+.add-iwaiter-icon [icon-only] ion-icon {
+  font-size: 100px;
+  font-weight: bold;
+}
+/*** segment ***/
+.segment-trip-page,
+.segment-trip-page ion-segment{
+  background-color: map-get($colors, content-background) !important;
+}
+.segment-trip-page .segment-button {//add .segment-trip-page
+  color: map-get($colors, textInsignificant) !important;
+  max-width: 50% !important;
+  height: 100% !important;
+  padding-top: 5px !important;
+  font-size: 1.4rem !important;
+  // border-bottom: 1px solid map-get($colors, textInsignificant) !important;
+}
+.segment-trip-page .segment-button.segment-activated {//add .segment-trip-page
+  color: map-get($colors, primary) !important;
+  border-bottom: 1px solid map-get($colors, primary) !important;
+}
+.segment-trip-page.toolbar.toolbar-md {
+  padding: 0 !important;
+  min-height: inherit;
+}
+.iwaiter-segment ion-segment {
+  border: 1px solid map-get($colors, blue);
+  border-radius: 6px;
+}
+.iwaiter-segment .segment-button {
+  color: map-get($colors, blue) !important;
+  font-size: 1.4rem !important;
+  font-weight: 300;
+}
+.iwaiter-segment .segment-button.segment-activated {
+  color: map-get($colors, textTitle) !important;
+  background-color: map-get($colors, blue);
+}
+
+.item-md ion-thumbnail,
+.item-md ion-thumbnail ion-img,
+.item-md ion-thumbnail img,
+.item-md ion-thumbnail div {
+  width: 75px;
+  height: 75px;
+  min-width: 75px;
+  min-height: 75px;
+}
+/*** List & Item ***/
+ion-item .item-inner {
+box-shadow: none !important;
+}
+
+ion-content ion-item.item-input.ng-valid:not(.input-has-focus) .item-inner{
+  border-bottom-color: map-get($colors, labelText);
+}
+
+/*** Label & Input ***/
+ion-label {
+  width: 4em;
+  color: map-get($colors, labelText);
+}
+ion-input {
+  font-size: 1.4rem;
+}
+.input-custom {
+  padding: 5px;
+  padding-left: 15px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid map-get($colors, border) !important;
+  height: 100%;
+}
+/*** Hide Tab when keyboard is open ***/
+
+body.keyboard-is-open .tabbar {
+  display: none;
+}
+body.keyboard-is-open .scroll-content {
+  margin-bottom: 0 !important;
+}
+.next-button {
+  height: initial !important;
+  ion-label {
+    height: 100% !important;
+    text-align: center;
+    // padding-top: 20px;
+  }
+  .button {
+    width: 40%;
+    height: 100% !important;
+    margin: 0;
+    border-radius: 4px !important;
+    font-size: 1.4rem;
+  }
+  background-color: map-get($colors, content-background) !important;
+}
+/*** hidden **/
+.hidden {
+  opacity: 0;
+}
+.not-display {
+  display: none !important;
+}
+.no-pd {
+  padding: 0 !important
+}
+
+.align-center{
+  text-align: center !important;
+}
+.align-right {
+  text-align: right !important;
+}
+/*** For imgs which are carousel ***/
+.full-view {
+  max-height: 35vh;
+  padding-left: 0 !important;
+  .item-inner {
+    padding-right: 0 !important;
+  }
+  .input-wrapper>ion-label {
+    margin: 0 !important;
+  }
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 5px !important;
+    .swiper-pagination-bullet {
+      background: white !important;
+      opacity: 1 !important;
+    }
+    .swiper-pagination-bullet-active {
+      background: #E32E54 !important;
+    }
+  }
+  .swiper-slide img {
+    width: 100% !important;
+    height: 35vh;
+    max-height: 35vh;
+  }
+}
+/*** no border***/
+[no-border] .item-inner {
+  border: none !important;
+}
+/*** attributes***/
+.bd-bottom {
+  border-bottom: 1px solid map-get($colors, border) !important;
+}
+.bd-top {
+  border-top: 1px solid map-get($colors, border) !important;
+}
+.no-bd-top {
+  border-top: none !important;
+}
+.no-bd-bottom {
+  border-bottom: none !important;
+}
+.inline-block {
+  display: inline-block !important;
+}
+.absolute {
+  position: absolute !important;
+}
+.half {
+  width: 50% !important;
+}
+/*** white-space for paragraph ***/
+.paragraph ion-label {
+  white-space: normal;
+}
+.labelText {
+  white-space: normal;
+  color: map-get($colors, textInsignificant);
+  margin: 4px 0;
+  font-size: 1.4rem;
+}
+.item-padding {
+  background-color: map-get($colors, content-background) !important;
+}
+.item-padding .item-inner {
+  border-bottom: 0 !important;
+}
+/*** picker ***/
+.picker-wrapper {
+  max-width: 100% !important;
+}
+/*** action sheet***/
+ion-action-sheet {
+  .action-sheet-group {
+    border-radius: 5px !important;
+    .action-sheet-title {
+      font-size: 1.7rem !important;
+      min-height: 6rem !important;
+      //color:
+    }
+  }
+  .action-sheet-button {
+    padding: 15px !important;
+    min-height: 4rem !important;
+    span.button-inner {
+      font-size: 1.4rem !important;
+    }
+    div.button-effect {
+      opacity: .2 !important;
+      transform: none !important;
+      height: auto !important;
+      width: auto !important;
+    }
+  }
+}
+/*** Button ***/
+.call-to-action-button {
+  &.single,
+  &.double {
+    padding-left: 0 !important;
+    padding-top: 40px;
+    ion-label {
+      height: 40px !important;
+      text-align: center;
+
+    }
+    .button {
+      width: 40%;
+      height: 100% !important;
+      margin: 0;
+      border-radius: 4px !important;
+      font-size: 1.4rem;
+    }
+  }
+  &.double {
+    .left {
+      margin-right: 10px !important;
+    }
+    .right {
+      margin-left: 18px !important;
+    }
+  }
+  // background-color: map-get($colors, content-background) !important;
+}
+.top-item {
+  top: 0;
+  padding: 10px 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #F5F5F5;
+  height: 70px;
+  .fab-button {
+    display: inline-block;
+    margin-right: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    &.like {
+      background-color: map-get($colors, primary);
+      // font-size: 2rem;
+      float: left;
+      color: map-get($colors, textTitle);
+      ion-icon {
+        font-size: 2em;
+      }
+    }
+    &.wrapper {
+      // border: 1px solid map-get($colors, border);
+
+      button {
+        background-color: map-get($colors, textTitle);
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid map-get($colors, primary);
+      }
+    }
+    &.right {
+      background-color: map-get($colors, textTitle);
+      float: right;
+      ion-icon {
+        color: map-get($colors, blue);
+        font-size: 3em;
+      }
+    }
+  }
+}
+.no-scroll>.scroll-content{
+  overflow: hidden;
+}
+.bottom-item {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #F5F5F5;
+    height: 70px;
+    // height: 60px;
+    .fab-button {
+      display: inline-block;
+      margin-right: 5px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      &.like {
+        background-color: map-get($colors, primary);
+        // font-size: 2rem;
+        float: left;
+        color: map-get($colors, textTitle);
+        ion-icon {
+          font-size: 2em;
+        }
+      }
+      &.wrapper {
+        border: 1px solid map-get($colors, border);
+
+        button {
+          background-color: map-get($colors, textTitle);
+          padding: 0;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 2px solid map-get($colors, grey);
+          &.active{
+            border: 2px solid map-get($colors, primary);
+          }
+        }
+      }
+      &.right {
+        background-color: map-get($colors, textTitle);
+        float: right;
+        ion-icon {
+          color: map-get($colors, blue);
+          font-size: 3em;
+        }
+      }
+    }
+    body.keyboard-is-open .tabbar {
+      display: none;
+    }
+    body.keyboard-is-open .scroll-content {
+      margin-bottom: 0 !important;
+    }
+
+  }
