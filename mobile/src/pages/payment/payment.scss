@@ -1,0 +1,27 @@
+page-payment {
+  ion-list {
+    border-bottom: 1px solid map-get($colors, border);
+  }
+  .total-price {
+    text-align: right;
+  }
+  .summary {
+    // width: 70%;
+    padding-left: 0;
+  }
+  .pay-input {
+    .pay-label {
+      width: 50%;
+      font-size: 2.4rem !important;
+    }
+    ion-input {
+      text-align: right;
+      input {
+        font-size: 2.4rem !important;
+        margin-right: 0 !important;
+        text-align: right;
+        width: 100% !important;
+      }
+    }
+  }
+}

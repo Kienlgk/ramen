@@ -1,0 +1,48 @@
+<!--
+  Generated template for the Payment page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>PAYMENT</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list *ngIf="this.total != 0">
+    <ion-item no-lines #item class="iwaiter-content" *ngFor="let dish of dishes">
+      <h2>{{dish.name}}</h2>
+      <div item-right>
+        <p>{{dish.quantity}} x {{dish.price| money}}đ</p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-item no-lines *ngIf="this.total != 0">
+    <h1 class="summary" color="primary" item-left>Tổng tiền:</h1>
+    <h1 color="primary" item-right>{{total| money}}đ</h1>
+  </ion-item>
+
+  <ion-item no-lines class="pay-input" *ngIf="this.total != 0">
+    <ion-label color="primary" class="pay-label summary">Khách đưa:</ion-label>
+    <ion-input placeholder="0"  type="number" item-right [ngModel]="customerPay | money" (ngModelChange)="customerPayChange($event)"></ion-input>
+  </ion-item>
+
+  <ion-item no-lines *ngIf="this.total != 0">
+    <h1 class="summary"color="primary" item-left>Trả lại:</h1>
+    <h1 color="primary" item-right>{{customerReceive | money}}đ</h1>
+  </ion-item>
+
+  <ion-item no-lines class="call-to-action-button single" *ngIf="this.total != 0">
+    <button  type="button" ion-button name="button" (click)="pay()">THANH TOÁN</button>
+  </ion-item>
+
+  <ion-item no-lines *ngIf="this.total == 0">
+    <h1>Bàn hiện tại chưa đặt món</h1>
+  </ion-item>
+</ion-content>

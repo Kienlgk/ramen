@@ -1,0 +1,18 @@
+page-order {
+  ion-item {
+    h2 {
+      padding-bottom: 5px !important;
+    }
+  }
+  .btn-quantity {
+    height: 30px !important;
+    width: 50px !important;
+  }
+  .no-scroll>.scroll-content{
+    overflow: hidden;
+  }
+  .bottom {
+    position: absolute !important;
+    bottom: 0;
+  }
+}

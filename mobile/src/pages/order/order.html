@@ -1,0 +1,45 @@
+<!--
+  Generated template for the Order page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ORDER</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="no-scroll">
+  <ion-list class="list-item" style="height: calc(100% - 66px)" *ngIf="this.shared.data.table">
+    <ion-scroll scrollY="true" style="height: 100%">
+      <ion-item no-lines #item class="iwaiter-content" *ngFor="let dish of SortedMenuList">
+        <ion-thumbnail item-left class=" no-padding trip-avatar">
+          <img src="assets/img/iwaiter-1.jpg" alt="thumb">
+        </ion-thumbnail>
+        <h2>{{dish.name}}</h2>
+        <div class="">
+          <button ion-button color="primary" class="btn-quantity inline-block">
+            <ion-icon  name="remove" (click)="decrease(dish)" class=""></ion-icon>
+          </button>
+          <button ion-button  color="primary" class="btn-quantity inline-block">
+            <ion-icon  name="add" (click)="increase(dish)" class=""></ion-icon>
+          </button>
+        </div>
+        <div item-right class="" >
+          <p class="inline-block" style="font-size: 3.6rem !important">{{dish.quantity}}/{{dish.total}}</p>
+        </div>
+      </ion-item>
+    </ion-scroll>
+  </ion-list>
+  <ion-item no-lines class="call-to-action-button double bottom" *ngIf="this.shared.data.table">
+    <button  type="button" ion-button name="button" class="left" (click)="order()">ĐẶT MÓN</button>
+    <button  type="button" ion-button name="button" class="right" (click)="cancel()">HỦY ĐẶT MÓN</button>
+  </ion-item>
+  <ion-item no-lines *ngIf="!this.shared.data.table">
+    <h1>Bàn hiện tại chưa đặt món</h1>
+  </ion-item>
+</ion-content>
