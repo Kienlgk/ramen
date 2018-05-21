@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ĐĂNG NHẬP</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- <div class="" style="text-align: center">
+    <img src="assets/icon/drawable-hdpi-icon.png" alt="icon">
+  </div> -->
+  <div padding>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="username" placeholder="Tên đăng nhập"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" [(ngModel)]="password" placeholder="Mật khẩu"></ion-input>
+    </ion-item>
+  </div>
+  <div padding>
+    <button ion-button block class="button-custom" (click)="login()">Đăng nhập</button>
+    <p>hoặc</p>
+    <!-- <button ion-button block class="login-fb" (click)="loginFacebook()"><i class="fa fa-facebook-square" aria-hidden="true"></i>Đăng nhập bằng Facebook</button> -->
+    <p class="register align-center" (click)="visitRegisterPage()">Đăng kí tài khoản mới?</p>
+  </div>
+  <p class="version">v{{version}}</p>
+</ion-content>

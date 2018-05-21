@@ -1,0 +1,51 @@
+page-login{
+  .scroll-content{
+    background-color: #fff !important;
+  }
+  .fixed-content,
+  .scroll-content {
+    margin-bottom: 0px !important;
+  }
+
+  p{
+    text-align: center;
+  }
+  p.register{
+    color: map-get($colors, blue);
+    text-align: left;
+  }
+  ion-item{
+    padding-left: 0!important;
+    .item-inner{
+      padding: 0!important;
+    }
+  }
+  .login-fb{
+    background: map-get($colors, blue);
+    color: white;
+    height: 40px;
+    border-radius: 4px;
+    i{
+      position: absolute;
+      left: 10px;
+      line-height: 40px !important;
+      color: white;
+      font-size: 2rem;
+    }
+  }
+  .item-input.input-has-focus:last-child {
+    box-shadow: none !important;
+  }
+  img{
+    width: 70px;
+    margin: 20px;
+  }
+  .version{
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    color: #999;
+  }
+
+
+}
