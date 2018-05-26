@@ -23,7 +23,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/userEdt"
-        android:hint="Username" />
+        android:hint="MSSV" />
 
     <EditText
         android:layout_width="match_parent"
@@ -31,10 +31,11 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passEdt"
-        android:hint="Password" />
+        android:hint="Mật khẩu"
+        android:fontFamily="sans-serif" />
 
     <Button
-        android:text="Login"
+        android:text="Đăng nhập"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/loginBtn" />

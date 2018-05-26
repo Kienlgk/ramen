@@ -1,10 +1,16 @@
 package com.example.baovy.ex3;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -30,7 +36,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -273,6 +282,12 @@ public class MainActivity extends AppCompatActivity
                         apl.setVisibility(View.VISIBLE);
 
                         createDrawerView();
+
+                        try {
+                            notifyExams();
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     k++;
@@ -299,6 +314,68 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.getMenu().getItem(0).setChecked(true);
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
+    }
+
+    public void notifyExams() throws ParseException {
+        int NOTIFICATION_INT_BASE = 1234;
+        Exam exam = examArrayList.get(0);
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDate = formatter.format(calendar.getTime());
+
+        for (ExamDetail e: exam.getLichthi()) {
+            String year = "";
+            if (e.getHk_nh().charAt(e.getHk_nh().length() - 1) == 1) {
+                year = e.getHk_nh().substring(0,e.getHk_nh().charAt(e.getHk_nh().length() - 2));
+            } else {
+                year = String.valueOf(Integer.parseInt(e.getHk_nh().substring(0,e.getHk_nh().length() - 1))+1);
+            }
+
+            if (e.getGio_thi() != null) {
+                String testDate = e.getNgaythi() + "/" + year;
+                if (formatter.parse(currentDate).compareTo(formatter.parse(testDate)) < 0) {
+                    String msg = "Môn: " + e.getTen_mh() + "\n" +
+                            "Thời gian: " + e.getGio_thi() + " ngày " + testDate + "\n" +
+                            "Phòng: " + e.getPhong_thi();
+                    NOTIFICATION_INT_BASE++;
+                    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
+                    notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
+                    notificationBuilder.setContentTitle("Thi học kỳ");
+                    notificationBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(msg));
+                    notificationBuilder.setContentText(msg);
+                    Intent intent = new Intent(this, MainActivity.class);
+                    TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+                    stackBuilder.addNextIntent(intent);
+                    PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+                    notificationBuilder.setContentIntent(pendingIntent);
+                    notificationBuilder.setDefaults(Notification.DEFAULT_ALL);
+                    NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+                    notificationManager.notify(NOTIFICATION_INT_BASE, notificationBuilder.build());
+                }
+            } else if (e.getGio_kt() != null) {
+                String testDate = e.getNgaykt() + "/" + year;
+                if (formatter.parse(currentDate).compareTo(formatter.parse(testDate)) < 0) {
+                    String msg = "Môn: " + e.getTen_mh() + "\n" +
+                            "Thời gian: " + e.getGio_kt() + " ngày " + testDate + "\n" +
+                            "Phòng: " + e.getPhong_ktra();
+                    NOTIFICATION_INT_BASE++;
+                    NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
+                    notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
+                    notificationBuilder.setContentTitle("Kiểm tra giữa kỳ");
+                    notificationBuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(msg));
+                    notificationBuilder.setContentText(msg);
+                    Intent intent = new Intent(this, MainActivity.class);
+                    TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+                    stackBuilder.addNextIntent(intent);
+                    PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+                    notificationBuilder.setContentIntent(pendingIntent);
+                    notificationBuilder.setDefaults(Notification.DEFAULT_ALL);
+                    NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+                    notificationManager.notify(NOTIFICATION_INT_BASE, notificationBuilder.build());
+                }
+            }
+        }
     }
 
     @Override
